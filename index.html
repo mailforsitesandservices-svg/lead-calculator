@@ -17,12 +17,15 @@
         <div class="section-heading"><span class="step">01</span><h2 id="input-title">Данные кампании</h2></div>
         <p class="section-note">Введите показатели за один и тот же период.</p>
         <form id="calculator" novalidate>
+          <label for="period">Название периода</label><div class="input-wrap"><input id="period" name="period" type="text" maxlength="100" placeholder="Например, Октябрь 2026" aria-describedby="period-error"></div><p class="error" id="period-error"></p>
           <label for="spend">Рекламный расход</label><div class="input-wrap"><input id="spend" name="spend" type="number" min="0" step="0.01" placeholder="Например, 50 000" inputmode="decimal" aria-describedby="spend-error"><span>₽</span></div><p class="error" id="spend-error"></p>
           <label for="clicks">Количество кликов</label><div class="input-wrap"><input id="clicks" name="clicks" type="number" min="0" step="1" placeholder="Например, 2 000" inputmode="numeric" aria-describedby="clicks-error"><span>шт.</span></div><p class="error" id="clicks-error"></p>
           <label for="leads">Количество заявок</label><div class="input-wrap"><input id="leads" name="leads" type="number" min="0" step="1" placeholder="Например, 100" inputmode="numeric" aria-describedby="leads-error"><span>шт.</span></div><p class="error" id="leads-error"></p>
           <label for="sales">Количество продаж</label><div class="input-wrap"><input id="sales" name="sales" type="number" min="0" step="1" placeholder="Например, 20" inputmode="numeric" aria-describedby="sales-error"><span>шт.</span></div><p class="error" id="sales-error"></p>
           <label for="revenue">Выручка</label><div class="input-wrap"><input id="revenue" name="revenue" type="number" min="0" step="0.01" placeholder="Например, 150 000" inputmode="decimal" aria-describedby="revenue-error"><span>₽</span></div><p class="error" id="revenue-error"></p>
           <div class="actions"><button type="button" id="example">Заполнить пример</button><button type="reset" class="reset">Сбросить</button></div>
+          <button type="button" id="save-period" class="save-period">Сохранить период</button>
+          <p id="save-status" class="save-status" role="status"></p>
         </form>
         <div class="privacy"><span aria-hidden="true">⌁</span> Данные остаются в вашем браузере</div>
       </section>
@@ -39,6 +42,16 @@
         <p class="result-note">Показатели появятся по мере ввода данных.<br>Если данных нет или делитель равен нулю, показываем «—».</p>
       </section>
     </div>
+    <section class="panel history" aria-labelledby="history-title">
+      <div class="section-heading"><span class="step">03</span><h2 id="history-title">История расчётов</h2></div>
+      <p id="history-empty" class="section-note">Сохранённых периодов пока нет.</p>
+      <div class="history-scroll" role="region" aria-label="История расчётов, таблица с горизонтальной прокруткой" tabindex="0">
+        <table class="history-table">
+          <thead><tr><th scope="col">Период</th><th scope="col">Расход</th><th scope="col">Заявки</th><th scope="col">CPL</th><th scope="col">Продажи</th><th scope="col">Стоимость продажи</th><th scope="col">ROMI</th><th scope="col">Действия</th></tr></thead>
+          <tbody id="history-body"></tbody>
+        </table>
+      </div>
+    </section>
     <footer>Каждое решение начинается с цифр.<span>Простой инструмент для вашей рекламы</span></footer>
   </main>
 </body>
