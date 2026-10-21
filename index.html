@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Калькулятор эффективности рекламы: CPC, CPL, конверсии и стоимость продажи.">
+  <title>Маркетинг в цифрах — калькулятор рекламы</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="page">
+    <header class="header"><a class="brand" href="./"><span class="brand-icon" aria-hidden="true">↗</span> маркетинг в цифрах</a><span class="badge">Калькулятор рекламы</span></header>
+    <section class="intro"><span class="eyebrow">МЕНЬШЕ ТАБЛИЦ — БОЛЬШЕ ЯСНОСТИ</span><h1>Ваша реклама.<br><span>В понятных цифрах.</span></h1><p>От первого клика до продажи — оцените эффективность<br class="desktop-break"> кампании по пяти исходным значениям.</p></section>
+    <div class="workspace">
+      <section class="panel input-panel" aria-labelledby="input-title">
+        <div class="section-heading"><span class="step">01</span><h2 id="input-title">Данные кампании</h2></div>
+        <p class="section-note">Введите показатели за один и тот же период.</p>
+        <form id="calculator" novalidate>
+          <label for="spend">Рекламный расход</label><div class="input-wrap"><input id="spend" name="spend" type="number" min="0" step="0.01" placeholder="Например, 50 000" inputmode="decimal" aria-describedby="spend-error"><span>₽</span></div><p class="error" id="spend-error"></p>
+          <label for="clicks">Количество кликов</label><div class="input-wrap"><input id="clicks" name="clicks" type="number" min="0" step="1" placeholder="Например, 2 000" inputmode="numeric" aria-describedby="clicks-error"><span>шт.</span></div><p class="error" id="clicks-error"></p>
+          <label for="leads">Количество заявок</label><div class="input-wrap"><input id="leads" name="leads" type="number" min="0" step="1" placeholder="Например, 100" inputmode="numeric" aria-describedby="leads-error"><span>шт.</span></div><p class="error" id="leads-error"></p>
+          <label for="sales">Количество продаж</label><div class="input-wrap"><input id="sales" name="sales" type="number" min="0" step="1" placeholder="Например, 20" inputmode="numeric" aria-describedby="sales-error"><span>шт.</span></div><p class="error" id="sales-error"></p>
+          <label for="revenue">Выручка</label><div class="input-wrap"><input id="revenue" name="revenue" type="number" min="0" step="0.01" placeholder="Например, 150 000" inputmode="decimal" aria-describedby="revenue-error"><span>₽</span></div><p class="error" id="revenue-error"></p>
+          <div class="actions"><button type="button" id="example">Заполнить пример</button><button type="reset" class="reset">Сбросить</button></div>
+        </form>
+        <div class="privacy"><span aria-hidden="true">⌁</span> Данные остаются в вашем браузере</div>
+      </section>
+      <section class="results" aria-labelledby="results-title">
+        <div class="results-heading"><div class="section-heading"><span class="step">02</span><h2 id="results-title">Результаты</h2></div><span class="live"><i></i> Авторасчёт</span></div>
+        <div class="metrics" aria-live="polite" aria-atomic="true">
+          <article class="metric"><div class="metric-top"><h3>Стоимость клика</h3><span class="metric-code">CPC</span></div><p class="value" id="cpc">—</p><p class="formula">Расход ÷ клики</p></article>
+          <article class="metric"><div class="metric-top"><h3>Из клика в заявку</h3><span class="metric-code">CR</span></div><p class="value" id="click-conversion">—</p><p class="formula">Заявки ÷ клики × 100%</p></article>
+          <article class="metric"><div class="metric-top"><h3>Стоимость заявки</h3><span class="metric-code">CPL</span></div><p class="value" id="cpl">—</p><p class="formula">Расход ÷ заявки</p></article>
+          <article class="metric"><div class="metric-top"><h3>Из заявки в продажу</h3><span class="metric-code">CR</span></div><p class="value" id="sale-conversion">—</p><p class="formula">Продажи ÷ заявки × 100%</p></article>
+          <article class="metric featured"><div><div class="metric-top"><h3>Стоимость продажи</h3><span class="metric-code">CPS</span></div><p class="value" id="cps">—</p><p class="formula">Расход ÷ продажи</p></div><span class="featured-icon" aria-hidden="true">↗</span></article>
+          <article class="metric romi"><div class="metric-top"><h3>ROMI</h3><span class="metric-code">%</span></div><p class="value" id="romi">—</p><p class="formula">(Выручка − рекламный расход) ÷ рекламный расход × 100%</p></article>
+        </div>
+        <p class="result-note">Показатели появятся по мере ввода данных.<br>Если данных нет или делитель равен нулю, показываем «—».</p>
+      </section>
+    </div>
+    <footer>Каждое решение начинается с цифр.<span>Простой инструмент для вашей рекламы</span></footer>
+  </main>
+</body>
+</html>
